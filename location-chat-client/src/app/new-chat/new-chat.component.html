@@ -1,0 +1,27 @@
+<div id="new-chat-background" *ngIf="dialogVisible == true" class="new-chat-background" (click)="BackgroundClick($event)">
+    <div class="new-chat-frame">
+        <div class="new-chat-field-category">
+            <input type="image"
+                class="new-chat-field-category-button"
+                src="/assets/chatNormal.png" 
+                [ngClass]="{'new-chat-field-category-button-selected': selectedCategory==1}"
+                (click)="CategoryClick(1)"/>
+            <input type="image"
+                class="new-chat-field-category-button"
+                src="/assets/chatEvent.png" 
+                [ngClass]="{'new-chat-field-category-button-selected': selectedCategory==2}"
+                (click)="CategoryClick(2)"/>
+            <input type="image"
+                class="new-chat-field-category-button"
+                src="/assets/chatImportant.png"
+                [ngClass]="{'new-chat-field-category-button-selected': selectedCategory==3}"
+                (click)="CategoryClick(3)"/>
+        </div>
+        <div class="new-chat-field-label">Description</div>
+        <input id="description" [(ngModel)]="description" type="text" class="new-chat-field-input" maxlength="255" autofocus>
+        <div class="new-chat-field-label">Content</div>
+        <textarea id="content" [(ngModel)]="content" class="new-chat-field-content" maxlength="1000"></textarea>
+        <button id="post" class="register-button" (click)="SubmitClick()">Post</button>
+        <label *ngIf="errorText != null">{{errorText}}</label>
+    </div>
+</div>

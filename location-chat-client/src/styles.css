@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+button {
+    height: 30px;
+    border-radius: 4px;
+    background-color: green;
+    color: white;
+    border: 0px solid;
+    margin: 10px 0;
+    margin-right: 5px;
+}
+button:last-child {
+    margin-right: 0px;
+}

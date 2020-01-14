@@ -1,0 +1,20 @@
+<div class="login-background">
+    <div class="login-frame" *ngIf="registerToggle == false">
+        <div class="login-field-label">Username</div>
+        <input id="username" [(ngModel)]="username" type="text" class="login-field-input" maxlength="255" autofocus>
+        <div class="login-field-label">Password</div>
+        <input id="password" type="password" [(ngModel)]="password" class="login-field-input" maxlength="255">
+        <button id="submitLogin" class="login-button" (click)="LogInClick()">Log in</button>
+        <button id="register" class="register-button" (click)="RegisterToggleClick()">Register</button>
+        <label *ngIf="errorText != null">{{errorText}}</label>
+    </div>
+    <div class="login-frame" *ngIf="registerToggle == true">
+        <div class="login-field-label">Username</div>
+        <input id="username" [(ngModel)]="username"  type="text" class="login-field-input" maxlength="255" autofocus>
+        <div class="login-field-label">Password</div>
+        <input id="password" type="password" [(ngModel)]="password"  class="login-field-input" maxlength="255">
+        <button id="submitLogin" class="login-button" (click)="RegisterClick()">Submit</button>
+        <button id="register" class="register-button" (click)="RegisterToggleClick()">Back</button>
+        <label *ngIf="errorText != null">{{errorText}}</label>
+    </div>
+</div>

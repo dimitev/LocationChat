@@ -1,0 +1,29 @@
+<div id="chat-background" *ngIf="dialogVisible == true" class="chat-background" (click)="BackgroundClick($event)">
+    <div class="chat-frame">
+        <button id="close" class="close-button" (click)="CloseDialog()">X</button>
+        <button id="delete" class="delete-button" (click)="DeletePost()" *ngIf="delVisible">Del</button>
+        <div class="chat-field-category">
+            <input type="image"
+                class="chat-field-category-button"
+                src={{helper.TypeToImage(mainChat.type)}} 
+                [ngClass]="{'chat-field-category-button-selected': selectedCategory==1}"/>
+        </div>
+        <label id="description" class="chat-field-description">{{mainChat.description}}</label>
+        <label id="content" class="chat-field-content">{{mainChat.content}}</label>
+        <div class="chat-field-comment-list">
+            <div *ngFor="let chatRow of comments" class="chat-field-comment-row">
+                <div><span class="chat-field-comment-username">{{chatRow.username}}</span><span class=".chat-field-comment-date">{{chatRow.date}}</span></div>
+                <label>{{chatRow.content}}</label>
+            </div>
+            <div *ngIf="comments=={} || comments==null" class="chat-field-comment-none" >
+                No comments yet
+            </div>
+            <div class="chat-field-comment-row">
+                You
+                <input id="responce" [(ngModel)]="chatResponce" type="text" class="chat-field-input" maxlength="255" autofocus (keyup.enter)="SubmitClick()">
+            </div>
+            <button id="post" class="register-button" (click)="SubmitClick()">Post</button>
+        </div>
+        <label *ngIf="errorText != null">{{errorText}}</label>
+    </div>
+</div>
