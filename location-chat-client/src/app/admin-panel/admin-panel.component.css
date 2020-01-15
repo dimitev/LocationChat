@@ -1,22 +1,22 @@
-.chat-field-description{
+.admin-field-description{
     width: 100%;
     font-size: 20px;
     word-wrap: break-word
 }
-.chat-field-content {
+.admin-field-content {
     width: 100%;
     word-wrap: break-word
 }
-.chat-field-input{
+.admin-field-input{
     width: 100%;
     border-radius: 4px;
     border: 1px solid gray;
     padding: 0 5px;
 }
-.chat-field-comment-none {
+.admin-field-comment-none {
     background: lavenderblush;
 }
-.chat-frame {
+.admin-frame {
     position: absolute;
     height: auto;
     margin: 0 auto;
@@ -28,7 +28,7 @@
     background: #f4f4f4;
 }
 
-.chat-background {
+.admin-background {
     top: 0;
     min-height: 500px;
     overflow-y: auto;
@@ -41,28 +41,28 @@
     background: #f4f4f4;
     background: #f4f4f4aa;
 }
-.chat-button {
+.admin-button {
     width: 100%;
     display: block;
 }
 
-.chat-field-category {
+.admin-field-category {
     width: 100%;
 }
-.chat-field-category-button {
+.admin-field-category-button {
     width: 25%;
     height: 50px;
     padding: 3px 20px;
 }
-.chat-field-category-button-selected {
+.admin-field-category-button-selected {
     background: green;
 }
 
-.chat-field-comment-list {
+.admin-field-comment-list {
     max-height: 500px;
     overflow-y: auto;
 }
-.chat-field-comment-row {
+.admin-field-comment-row {
     background: white;
     padding: 5px;
     border: 1px solid gray;
@@ -84,21 +84,21 @@
     width: 40px;
     height: 30px;
 }
-.chat-field-comment-username {
+.admin-field-comment-username {
     font-size: 18px;
     font-weight: bold;
 }
-.chat-field-comment-date {
+.admin-field-comment-date {
     padding-left: 10px;
     font-size: 12px;
     font-style: italic;
 }
 @media only screen and (max-width: 400px) {
-    .chat-frame {
+    .admin-frame {
         width: 100%;
         margin-top: 0;
     }
-    .chat-field-category-button {
+    .admin-field-category-button {
         width: 28%;
     }
 }

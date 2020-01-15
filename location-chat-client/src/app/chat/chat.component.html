@@ -8,12 +8,12 @@
                 src={{helper.TypeToImage(mainChat.type)}} 
                 [ngClass]="{'chat-field-category-button-selected': selectedCategory==1}"/>
         </div>
-        <label id="description" class="chat-field-description">{{mainChat.description}}</label>
+        <label id="description" class="chat-field-description" title="{{ user.isAdmin == true ? 'chatid:' +this.currentChatRoomId : '' }}">{{mainChat.description}}</label>
         <label id="content" class="chat-field-content">{{mainChat.content}}</label>
         <div class="chat-field-comment-list">
             <div *ngFor="let chatRow of comments" class="chat-field-comment-row">
-                <div><span class="chat-field-comment-username">{{chatRow.username}}</span><span class=".chat-field-comment-date">{{chatRow.date}}</span></div>
-                <label>{{chatRow.content}}</label>
+                <div><span class="chat-field-comment-username">{{chatRow.username}}</span><span class="chat-field-comment-date">{{chatRow.date | date :'short'}}</span></div>
+                <label title="{{ user.isAdmin == true ? 'messageid:' + chatRow.id : '' }}">{{chatRow.content}}</label>
             </div>
             <div *ngIf="comments=={} || comments==null" class="chat-field-comment-none" >
                 No comments yet

@@ -3,6 +3,7 @@ import { ServerService } from '../server.service';
 import { ChatComponent } from '../chat/chat.component';
 import { UsersService } from '../users.service';
 import { HelperService } from '../helper.service';
+import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
 
 @Component({
   selector: 'app-map-view',
@@ -13,6 +14,7 @@ export class MapViewComponent implements OnInit, AfterViewInit{
 
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   @ViewChild(ChatComponent, {static: false}) chat: ChatComponent;
+  @ViewChild(AdminPanelComponent, {static: false}) adminPanel: AdminPanelComponent;
   map: google.maps.Map;
   newMarker: any;
   chatHeads = [];
@@ -37,6 +39,11 @@ export class MapViewComponent implements OnInit, AfterViewInit{
   }
   ngAfterViewInit(){
     this.mapInitializer();
+  }
+  OpenAdminPanel()
+  {
+    this.adminPanel.dialogVisible = true;
+    console.log("open admin");
   }
   mapInitializer() {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);

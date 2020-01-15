@@ -1,0 +1,21 @@
+<div id="admin-background" *ngIf="dialogVisible == true" class="admin-background" (click)="BackgroundClick($event)">
+    <div class="admin-frame">
+        <button id="close" class="close-button" (click)="CloseDialog()">X</button>
+        <div>
+            <label  class="admin-field-description">Delete user by username</label>
+            <input [(ngModel)]="userDelete" type="text" class="admin-field-input" maxlength="255">
+            <button  class="register-button" (click)="DeleteUserClick()">Delte user</button>
+        </div>
+        <div>
+            <label  class="admin-field-description">Delete post by id</label>
+            <input [(ngModel)]="postDelete" type="text" class="admin-field-input" maxlength="255">
+            <button class="register-button" (click)="DeleteGroupClick()">Delte post</button>
+        </div>
+        <div>
+            <label  class="admin-field-description">Delete message by id</label>
+            <input  [(ngModel)]="messageDelete" type="text" class="admin-field-input" maxlength="255">
+            <button  class="register-button" (click)="DeleteMessageClick()">Delte message</button>
+        </div>
+        <label *ngIf="errorText != null">{{errorText}}</label>
+    </div>
+</div>

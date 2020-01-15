@@ -13,6 +13,7 @@ import { MapViewComponent } from './map-view/map-view.component';
 import { NewChatComponent } from './new-chat/new-chat.component';
 import { ChatComponent } from './chat/chat.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CookieService } from 'ngx-cookie-service';
     LoginComponent,
     MapViewComponent,
     NewChatComponent,
-    ChatComponent
+    ChatComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,

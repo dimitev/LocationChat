@@ -1,3 +1,5 @@
 <div #mapContainer id="map"></div>
 <app-chat (dialogVisibleChange)="updateBubble()" ></app-chat>
 <app-new-chat [(dialogVisible)]="newChat" (dialogVisibleChange)="updateBubble()" [coordinates]="lastClickCoordinates"></app-new-chat>
+<app-admin-panel (dialogVisibleChange)="updateBubble()" ></app-admin-panel>
+<button class="admin-button" (click)="OpenAdminPanel()"></button>

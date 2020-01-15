@@ -36,7 +36,7 @@ export class ServerService {
     getChatRoomChange(parameters) {
       return this.request('GET', `${environment.serverUrl}/getChatRoomChange`, null, parameters);
     }
-    
+
     createUser(event) {
       return this.request('POST', `${environment.serverUrl}/createUser`, event);
     }
@@ -59,5 +59,13 @@ export class ServerService {
 
     deletePost(event) {
       return this.request('DELETE', `${environment.serverUrl}/deletePost/${event.postId}`);
+    }
+
+    deleteUser(event) {
+      return this.request('DELETE', `${environment.serverUrl}/deleteUser/${event.username}`);
+    }
+
+    deleteMessage(event) {
+      return this.request('DELETE', `${environment.serverUrl}/deleteMessage/${event.messageId}`);
     }
 }

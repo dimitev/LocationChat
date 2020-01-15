@@ -38,7 +38,7 @@ export class ChatComponent implements OnInit {
   }
   constructor(
     private server: ServerService,
-    private user: UsersService,
+    public user: UsersService,
     public helper: HelperService
     ) { }
 

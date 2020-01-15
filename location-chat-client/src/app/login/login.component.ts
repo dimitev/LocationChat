@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   LogInClick() {
     this.errorText = null;
     this.server.checkCredentials({username: this.username, password: this.password}).then(responce=> {
-      this.user.LogInUser(this.username.toString(),(responce as any).userId);
+      this.user.LogInUser(this.username.toString(),(responce as any).userId,(responce as any).isAdmin);
       this.router.navigate(['/chats']);
     },error=>{console.log("error: " + (this.errorText=error.error.status))});
   }

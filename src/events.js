@@ -69,8 +69,7 @@ function createRouter(db) {
 		  } else {
 			  console.log(results);
 			if(results.length > 0){
-				
-				res.status(200).json({status: 'ok',userId: results[0].id});
+				res.status(200).json({status: 'ok',userId: results[0].id, isAdmin: results[0].isAdmin ? 1 : 0});
 			}
 			else{
 				res.status(500).json({status: 'Wrong credentials'});
@@ -234,6 +233,74 @@ function createRouter(db) {
 		  }
 		}
 	  );
+	});
+	router.delete('/deleteMessage/:id', function (req, res, next) {
+	  db.query(
+		'DELETE FROM message WHERE id=?',
+		[req.params.id],
+		(error) => {
+		  if (error) {
+			res.status(500).json({status: 'error'});
+		  } else {
+			res.status(200).json({status: 'ok'});
+		  }
+		}
+	  );
+	});
+	router.delete('/deleteUser/:username', function (req, res, next) {
+		console.log("params: " + JSON.stringify(req.params));
+		db.query(
+		'SELECT * from users where username=?',
+		[req.params.username],
+		(error,results) => {
+		  if (error) {
+			console.error(error);
+			res.status(500).json({status: 'error'});
+		  } else {
+			  console.log(results);
+			if(results.length > 0){
+				
+				let id = results[0].id;
+				db.query(
+					'DELETE FROM message WHERE userId=?',
+					[id],
+					(error) => {
+					  if (error) {
+						  console.log(error);
+						res.status(500).json({status: 'error'});
+					  } else {
+						  db.query(
+							'DELETE FROM chatGroups WHERE mainUser=?',
+							[id],
+							(error) => {
+							  if (error) {
+								res.status(500).json({status: 'error'});
+							  } else {
+								db.query(
+									'DELETE FROM users WHERE id=?',
+									[id],
+									(error) => {
+									  if (error) {
+										res.status(500).json({status: 'error'});
+									  } else {
+										res.status(200).json({status: 'ok'});
+									  }
+									}
+								  );
+							  }
+							}
+						  );
+					  }
+					}
+				  );
+			}
+			else{
+				res.status(500).json({status: 'Wrong credentials'});
+			}
+		  }
+		}
+	  );
+	  
 	});
 
   return router;

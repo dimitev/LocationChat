@@ -3,3 +3,12 @@
     width: 100%;
     position: fixed !important;
    }
+   .admin-button {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 30px;
+       height: 30px;
+       background-image: url('/assets/admin.png');
+       background-size: contain;
+   }

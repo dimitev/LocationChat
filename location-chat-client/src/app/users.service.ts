@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
@@ -11,6 +9,7 @@ export class UsersService {
 
     public userId: number;
     public userName: string;
+    public isAdmin: boolean;
     constructor(private cookie: CookieService,private router: Router) {
     }
     CheckIfUserIsLogged()
@@ -24,11 +23,12 @@ export class UsersService {
         console.log("userNotLoggedIn");
         return false;
     }
-    LogInUser(userName: string, userId: number)
+    LogInUser(userName: string, userId: number,admin: boolean)
     {
       if(!!userName && !!userId){
         this.userId=userId;
         this.userName=userName;
+        this.isAdmin = admin;
         let valid = new Date();
         valid.setHours(valid.getHours()+1);
         this.cookie.set("currentUserName",userName, valid ,null,null,null,"Strict");
@@ -39,6 +39,7 @@ export class UsersService {
     {
       this.userId=null;
       this.userName=null;
+      this.isAdmin = false;
       this.cookie.deleteAll();
       this.router.navigate(['/']);
     }
